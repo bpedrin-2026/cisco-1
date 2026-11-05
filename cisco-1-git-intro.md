@@ -1,39 +1,73 @@
-<link rel="stylesheet" href="css/styles.css">
+<style>
+  details {
+    color: yellow;
+  }
+
+.shortcut {
+  color: violet;
+  font-size: 1.2em;
+}
+
+.center-bold {
+  text-align: center;
+  font-size: 1.2em;
+  color: red;
+}
+
+h1 {
+  color: green;
+}
+
+h2 {
+  color: lightgreen;
+}
+
+h3 {
+  color: orange;
+}
+</style>
 
 
 
+<h1>Configure Users using GitBash Commands</h1>
 
-# Configuring User using GitBash
 - git config --global user.name "Benjamin Pedrin"
 - git config --global user.email "pedrinb@students.westerntc.edu"
 - git config --global core.autocrlf true
 - git config --global --list
 
-## Creating SSH keys
+<h2>Creating SSH keys</h2>
+
 - ssh-keygen -t ed25519 -C "pedrinb@students.westerntc.edu"
 
-### 1. Start the agent and add the key (Holds key in memory while computer is on)
+<h3>1. Start the agent and add the key (Holds key in memory while computer is on)</h3>
+
   - eval "$(ssh-agent -s)"
   - ssh-add ~/.ssh/id_ed25519
 
-### 2. Print & Copy Public Key
+<h3>2. Print & Copy Public Key</h3>
+
 - cat ~/.ssh/id_ed25519.pub
 
-### 3. Testing your connection
+<h3>3. Testing your connection</h3>
+
 - ssh -T git@github.com
 
 <hr><hr>
 
-# * ! * Basic Switch and End Device Configuration
-### 1. User EXEC Mode (View-Only)
+<h1>Basic Switch and End Device Configuration</h1>
+
+<h2>1. User EXEC Mode (View-Only)</h2>
+
 - limited capabilities - cannot change config of device
 - CLI prompt ends with ">"
 - type "enable" to enter Privileged EXEC Mode from here
 
-### 2. Privileged EXEC Mode
+<h2>2. Privileged EXEC Mode</h2>
+
 - Used to execute config commands
 - CLI prompt ends with "#"
-- type "configure terminal (<em style="color: violet">config t</em>)" to enter global config mode
+- type "configure terminal (<em class="shortcut">config t</em>)" to enter global config mode
 
 
 
@@ -44,7 +78,8 @@
 </details>
 
 
-### 3. Global Config Mode
+<h2>3. Global Config Mode</h2>
+
 - Identified with prompt that ends with  "(config)#"
   - a. **<u>Line Configuration Mode</u>** - used to config console, SSH, Telnet or AUX access
   - b. **<u>Interface Configuration Mode</u>** - used to config a switch, port or router network interface
@@ -58,32 +93,36 @@
 </details>
 <br>
 
-# Syntax
+<h1>Syntax</h1>
+
 <details>
 <summary><strong>Syntax Help</strong></summary>
 
 <img src="images/syntax-cheatsheet.png" alt="syntax cheatsheet" width="750">
 </details>
 
-For help in the CLI, enter a question mark (<em style="color: violet">?</em>)prompt.
+For help in the CLI, enter a question mark (<em class="shortcut"> ? </em>)prompt.
 - this is *context sensitive* meaning that the help you get will be determined by where and when you seek the help
 
 
-# Hotkeys & Shortcuts
+<h1>Hotkeys & Shortcuts</h1>
+
 <details>
-<summary><strong>Hotkeys</strong></summary>
+<summary><strong>Hotkeys Cheatsheet</strong></summary>
 
 <img src="images/hotkeys.png" alt="Hotkeys" width="750">
 </details>
 
 <br>
 
-# Naming Devices
+<h1>Naming Devices</h1>
+
 - When naming a device, enter Privileged EXEC Mode on the device and use <strong><u>hostname</u></strong> or <strong><u>no hostname</u></strong> to change the name or return it to it's original prompt name
 
 <br>
 
-# Configuring Passwords
+<h1>Configuring Passwords</h1>
+
 <details>
 <summary><strong>Password Commands</strong></summary>
 
@@ -104,7 +143,7 @@ For help in the CLI, enter a question mark (<em style="color: violet">?</em>)pro
 
 <br>
 
-**Be aware that "enable password" and "enable secret" are distinctly different**
+<div class="center-bold">Be aware that "enable password" and "enable secret" are distinctly different</div>
 
 <br>
 
