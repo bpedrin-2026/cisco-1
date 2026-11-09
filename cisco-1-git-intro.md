@@ -143,7 +143,7 @@ For help in the CLI, enter a question mark (<em class="shortcut"> ? </em>)prompt
 
 <br>
 
-<div class="center-bold">Be aware that "enable password" and "enable secret" are distinctly different</div>
+<div class="center-bold">Do Not Use "enable password" | Use "enable secret"</div>
 
 <br>
 
@@ -161,4 +161,23 @@ Configurations commands "shortlist"
 <img src="images/vlanconfig.png" alt="Vlan Configuration">
 </details>
 command: "show ip interface brief"
+<br>
+
+<h1>Reference Models</h1>
+
+<details>
+<summary><strong>OSI Model</strong></summary>
+
+<img src="images/osi-model.png" alt="OSI Reference Model">
+</details>
+<details>
+<summary><strong>TCP/IP Model</strong></summary>
+
+<img src="images/tcp-ip-model.png" alt="TCP/IP Reference Model">
+</details>
+<details>
+<summary><strong>Model Comparison</strong></summary>
+
+<img src="images/model-compare.png" alt="Model Comparison">
+</details>
 <br>
