@@ -167,6 +167,22 @@ For help in the CLI, enter a question mark (<em class="shortcut"> ? </em>)prompt
 <summary><strong>Password Commands</strong></summary>
 
 <img src="images/passwordset.png" alt="Password creation commands" width="900">
+Setting User Password:
+
+- line console 0
+- password x4fr7
+- login
+
+Setting Enable Password
+
+- enable password Ft6dR
+- enable secret 7Fre4M
+
+Setting VTY Password
+
+- line vty
+
+To clear a password, simply type "NO" before any command
 </details>
 
 <details>
@@ -204,6 +220,8 @@ command: "show ip interface brief"
 <br>
 
 <h1>Reference Models</h1>
+
+"All People Seem To Need Data Processing"
 
 <details>
 <summary><strong>OSI Model</strong></summary>
