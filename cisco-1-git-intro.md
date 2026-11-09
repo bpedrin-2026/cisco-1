@@ -23,7 +23,16 @@ h2 {
 }
 
 h3 {
-  color: orange;
+  color: white;
+  text-decoration: underline;
+}
+.normal {
+  color: white;
+}
+
+.HOT {
+  color: red;
+  font-weight: 1.2em;
 }
 </style>
 
@@ -38,6 +47,8 @@ h3 {
 
 <h2>Creating SSH keys</h2>
 
+<details>
+<summary>Commands</summary><br>
 - ssh-keygen -t ed25519 -C "pedrinb@students.westerntc.edu"
 
 <h3>1. Start the agent and add the key (Holds key in memory while computer is on)</h3>
@@ -52,23 +63,45 @@ h3 {
 <h3>3. Testing your connection</h3>
 
 - ssh -T git@github.com
+</details>
 
 <hr><hr>
 
 <h1>Basic Switch and End Device Configuration</h1>
 
-<h2>1. User EXEC Mode (View-Only)</h2>
+<details>
+<summary>Access Methods</summary>
+<h3>Access Methods</h3>
 
-- limited capabilities - cannot change config of device
-- CLI prompt ends with ">"
-- type "enable" to enter Privileged EXEC Mode from here
+<ul class="normal">
+  <li>Console
+    <ul>
+      <li>Physical management port</li>
+      <li>Out-of-Band - refers to access via a cable or dedicated management channel used for maintenance only!</li>
+      <li>Cable required</li>
+    </ul>
+  </li>
+  <li>Telnet
+    <ul>
+      <li>In-Band - <span class="HOT">Insecure</span></li>
+      <li>Over Network - used once the IP has been configured</li>
+      <li>Requires active networking services on the device</li>
+      <li class="HOT">NOT ENCRYPTED</li>
+    </ul>
+  </li>
+  <li>Secure Shell (SSH)
+    <ul>
+      <li>In-Band</li>
+      <li class="HOT">SECURE</li>
+    </ul>
+  </li>
+</ul>
 
-<h2>2. Privileged EXEC Mode</h2>
+<h2>1. User EXEC Mode Commands(View-Only)</h2>
 
-- Used to execute config commands
-- CLI prompt ends with "#"
-- type "configure terminal (<em class="shortcut">config t</em>)" to enter global config mode
 
+
+<h2>2. Privileged EXEC Mode Commands</h2>
 
 
 <details>
@@ -92,6 +125,13 @@ h3 {
 <img src="images/mode-cmds.png" alt="Commands for Cisco CLI modes" width="750">
 </details>
 <br>
+
+
+<h1>Commands</h1>
+
+- line interface vlan 1
+- no ip domain-lookup
+
 
 <h1>Syntax</h1>
 
