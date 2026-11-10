@@ -1,0 +1,57 @@
+
+body {
+    background-color: rgb(20, 20, 20);
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.section-header {
+    font-size: 2.5em;
+}
+  details {
+    color: yellow;
+  }
+
+.shortcut {
+  color: violet;
+  font-size: 1.2em;
+}
+
+.hot {
+  font-size: 1.2em;
+  color: red;
+}
+
+.hot-center {
+  text-align: center;
+  font-size: 1.2em;
+  color: red;
+}
+
+h1 {
+  color: rgb(88, 137, 201);
+}
+
+h2 {
+  color: lightgreen;
+}
+
+h3 {
+  color: white;
+  text-decoration: underline;
+}
+
+.underline-points {
+  color: white;
+  text-decoration: underline;
+  font-size: 1.2em;
+}
+
+.normal {
+  color: white;
+}
+
+.footnote {
+  font-style: italic;
+  color: violet;
+}

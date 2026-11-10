@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/styles.css">
+
+        <title>Command Reference</title>
+    </head>
+
+    <body>
+        <div class="section-header">Section I: Creating Secure Shell Keys</div>
+        <h1>Configure Users using GitBash Commands</h1>
+
+        <details>
+            <summary>Commands</summary>
+            <ul class="normal">
+                <li>git config --global user.name "Benjamin Pedrin"</li>
+                <li>git config --global user.email "pedrinb@students.westerntc.edu"</li>
+                <li>git config --global core.autocrlf true</li>
+                <li>git config --global --list</li>
+            </ul>
+        </details>
+
+        <h1>Creating SSH keys</h1>
+
+        <details>
+            <summary>Commands</summary><br>
+
+            <h3>Command to create a new SSH key</h3>
+            <ul class="normal">
+                <li>ssh-keygen -t ed25519 -C "pedrinb@students.westerntc.edu"</li>
+                    </ul>
+                </li>
+            </ul>
+            <ol class="normal">
+                <li><h3>Start the agent and add the key</h3>
+                    <ul>
+                        <li>(Holds key in memory while computer is on)</li>
+                        <li>eval "$(ssh-agent -s)"</li>
+                        <li>ssh-add ~/.ssh/id_ed25519</li>
+                    </ul>
+                </li>
+                <li><h3>Print & Copy Public Key</h3>
+                    <ul>
+                        <li>cat ~/.ssh/id_ed25519.pub</li>
+                    </ul>
+                </li>
+                <li><h3>Testing your connection</h3>
+                    <ul>
+                        <li>ssh -T git@github.com</li>
+                    </ul>
+                </li>
+            </ol>
+        </details>
+
+        <hr><hr>
+
+        <h1>Basic Switch and End Device Configuration</h1>
+
+        <details>
+        <summary>Access Methods</summary>
+        <h3>Access Methods</h3>
+
+        <ul class="normal">
+        <li>Console
+            <ul>
+            <li>Physical management port</li>
+            <li>Out-of-Band - refers to access via a cable or dedicated management channel used for maintenance only!</li>
+            <li>Cable required</li>
+            </ul>
+        </li>
+        <li>Telnet
+            <ul>
+            <li>In-Band - <span class="hot">Insecure</span></li>
+            <li>Over Network - used once the IP has been configured</li>
+            <li>Requires active networking services on the device</li>
+            <li class="hot">NOT ENCRYPTED</li>
+            </ul>
+        </li>
+        <li>Secure Shell (SSH)
+            <ul>
+            <li>In-Band</li>
+            <li class="hot">SECURE</li>
+            </ul>
+        </li>
+        </ul>
+
+        <h2>1. User EXEC Mode Commands(View-Only)</h2>
+
+        <h2>2. Privileged EXEC Mode Commands</h2>
+
+        <h2>3. Global Config Mode</h2>
+
+        - Identified with prompt that ends with  "(config)#"
+        - a. **<u>Line Configuration Mode</u>** - used to config console, SSH, Telnet or AUX access
+        - b. **<u>Interface Configuration Mode</u>** - used to config a switch, port or router network interface
+
+        </details>
+        <br>
+
+        <details>
+        <summary><strong>Mode Changes</strong></summary>
+
+        <h3>Modes</h3>
+
+        <ul class="normal">
+            <li>Priveliged EXEC
+            <ul>
+                <li>enable</li>
+            </ul>
+            </li>
+            <li>Configuration Mode
+            <ul>
+                <li>configure terminal (config t)</li>
+            </ul>
+            </li>
+            <li>line console
+            <ul>
+                <li>line console 0</li>
+            </ul>
+            </li>
+            <li>line vty
+            <ul>
+                <li>line vty &lt;range&gt;</li>
+            </ul>
+            </li>
+            <li>interfaces
+            <ul>
+                <li>interface &lt;type/number&gt;</li>
+            </ul>
+            </li>
+        <span class="footnote">(ex. (config)#interface vlan 1, (config)#interface FastEthernet 0/1)</span>
+        </ul>
+        </details>
+        <br>
+
+        <h1>Additional Commands</h1>
+
+        - no ip domain-lookup
+
+        <h1>Syntax</h1>
+
+        <details>
+        <summary><strong>Syntax Help</strong></summary>
+
+        <img src="images/syntax-cheatsheet.png" alt="syntax cheatsheet" width="750">
+        </details>
+
+        For help in the CLI, enter a question mark (<em class="shortcut"> ? </em>)prompt.
+        - this is *context sensitive* meaning that the help you get will be determined by where and when you seek the help
+
+
+        <h1>Hotkeys & Shortcuts</h1>
+
+        <details>
+        <summary><strong>Hotkeys Cheatsheet</strong></summary>
+
+        <img src="images/hotkeys.png" alt="Hotkeys" width="750">
+        </details>
+
+        <br>
+
+        <h1>Naming Devices</h1>
+
+        - When naming a device, enter Privileged EXEC Mode on the device and use <strong><u>hostname</u></strong> or <strong><u>no hostname</u></strong> to change the name or return it to it's original prompt name
+
+        <br>
+
+        <h1>Configuring Passwords</h1>
+
+        <details>
+        <summary><strong>Password Commands</strong></summary>
+
+        <h3>Setting Passwords</h3>
+
+        <span class="normal">
+        <ul>
+            <li>console password
+            <ul>
+                <li>line console 0</li>
+                <li>password xT6yR</li>
+                <li>login</li>
+                <li>end (exit can be used to exit line mode)</li>
+            </ul>
+            </li>
+        <br>
+            <li>enable password
+            <ul>
+                <li>config t - (enter configuration mode)</li>
+                <li>enable password R7gS0e</li>
+                <li>exit - (when ready to exit config mode)</li>
+            </ul>
+            </li>
+        <br>
+            <li>enable secret
+            <ul>
+                <li>config t - (enter configuration mode)</li>
+                <li>enable secret sEd9o7</li>
+                <li>exit - (when ready to exit config mode)</li>
+            </ul>
+            </li>
+        <br>
+            <li>vty password (Virtual Teletype)
+
+        <span class="footnote">Virtual terminal that provides remote access for Telnet and SSH sessions</span>
+            <ul>
+                <li>line vty 0 15</li>
+                <li>password x8Hc5ja</li>
+                <li>login</li>
+                <li>end (to return to enable mode); exit (to return to config mode)</li>
+            </ul>
+        <span class="footnote">To configure different security options for different virtual lines
+            <ul>
+                <li>line vty 0 4</li>
+                <li>password MyPass</li>
+                <li>login local</li>
+                <li>transport input ssh</li>
+                <li>access-class 101 in</li>
+            </ul>
+        <br>
+            <ul>
+                <li>line vty 5 15</li>
+                <li>password MyPass</li>
+                <li>login local</li>
+                <li>transport input ssh telnet</li>
+                <li>access-class 102 in</li>
+            </ul>
+            </li>
+        </span>
+            <li>username/password authentication
+            <ul>
+                <li>Router(config)# username admin secret MyStrongPassword</li>
+                <li>Router(config)# line console 0</li>
+                <li>Router(config-line)# login local</li>
+            </ul>
+            </li>
+        </ul>
+        <span class="hot-center">Do Not Use "enable password" | Use "enable secret"</span>
+        <br>
+        <span class="hot-center">To clear a password, simply type "NO" before any command</span>
+
+        </span>
+
+        </details>
+
+        <details>
+        <summary><strong>Encryption Commands</strong></summary>
+        <h3>Encryption</h3>
+
+        <ul class="normal">
+            <li>service password-encryption
+        </ul>
+
+
+        </details>
+
+        <details>
+        <summary><strong>Banner Message</strong></summary>
+
+        <span class="footnote">The Banner message appears at login to alert the user of restrictions or consequences of unauthorized access
+        </span>
+        <h3>Command</h3>
+
+        <ul class="normal">
+            <li>banner motd <span class="footnote">(message of the day)</span> "<em>message</em>"</li>
+        </ul>
+        <span class="footnote">The " on either side of the message can be anything just as long as it is the same in the beginning and at the end, and whatever it is does NOT appear in the message!</span>
+        </details>
+
+        <br>
+
+        Configurations commands "shortlist"
+        - show running-config
+        - show startup-config
+        - reload
+        - erase startup-config
+        - copy running-config startup-config (copy run start)
+
+        # Configuring A Virtual Interface
+        <details>
+        <summary><strong>Vlan Config</strong></summary>
+
+        <img src="images/vlanconfig.png" alt="Vlan Configuration">
+        </details>
+        command: "show ip interface brief"
+        <br>
+
+        <h1>Reference Models</h1>
+
+        "All People Seem To Need Data Processing"
+
+        <details>
+        <summary><strong>OSI Model</strong></summary>
+
+        <img src="images/osi-model.png" alt="OSI Reference Model">
+        </details>
+        <details>
+        <summary><strong>TCP/IP Model</strong></summary>
+
+        <img src="images/tcp-ip-model.png" alt="TCP/IP Reference Model">
+        </details>
+        <details>
+        <summary><strong>Model Comparison</strong></summary>
+
+        <img src="images/model-compare.png" alt="Model Comparison">
+        </details>
+        <br>
+    </body>
+
+</html>
