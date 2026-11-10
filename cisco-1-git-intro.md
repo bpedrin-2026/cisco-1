@@ -26,6 +26,13 @@ h3 {
   color: white;
   text-decoration: underline;
 }
+
+.underline-points {
+  color: white;
+  text-decoration: underline;
+  font-size: 1.2em;
+}
+
 .normal {
   color: white;
 }
@@ -34,27 +41,47 @@ h3 {
   color: red;
   font-weight: 1.2em;
 }
+
+.footnote {
+  font-style: italic;
+  color: violet;
+}
+
 </style>
 
 
 
 <h1>Configure Users using GitBash Commands</h1>
 
+<details>
+<summary>Commands</summary>
+
 - git config --global user.name "Benjamin Pedrin"
 - git config --global user.email "pedrinb@students.westerntc.edu"
 - git config --global core.autocrlf true
 - git config --global --list
+</details>
 
-<h2>Creating SSH keys</h2>
+<h1>Creating SSH keys</h1>
 
 <details>
 <summary>Commands</summary><br>
+
+<span class="normal">
+
 - ssh-keygen -t ed25519 -C "pedrinb@students.westerntc.edu"
 
-<h3>1. Start the agent and add the key (Holds key in memory while computer is on)</h3>
 
-  - eval "$(ssh-agent -s)"
-  - ssh-add ~/.ssh/id_ed25519
+<ol>
+  <li><span class="underline-points">Start the agent and add the key</span>
+    <ul>
+      <li>(Holds key in memory while computer is on)</li>
+      <li>eval "$(ssh-agent -s)"</li>
+      <li>ssh-add ~/.ssh/id_ed25519</li>
+    </ul>
+  </li>
+
+</span>
 
 <h3>2. Print & Copy Public Key</h3>
 
@@ -99,17 +126,7 @@ h3 {
 
 <h2>1. User EXEC Mode Commands(View-Only)</h2>
 
-
-
 <h2>2. Privileged EXEC Mode Commands</h2>
-
-
-<details>
-<summary><strong>Show Image</strong></summary>
-
-<img src="images/cli-modes.png" alt="Cisco CLI modes" width="750">
-</details>
-
 
 <h2>3. Global Config Mode</h2>
 
@@ -117,6 +134,7 @@ h3 {
   - a. **<u>Line Configuration Mode</u>** - used to config console, SSH, Telnet or AUX access
   - b. **<u>Interface Configuration Mode</u>** - used to config a switch, port or router network interface
 
+</details>
 <br>
 
 <details>
@@ -166,29 +184,84 @@ For help in the CLI, enter a question mark (<em class="shortcut"> ? </em>)prompt
 <details>
 <summary><strong>Password Commands</strong></summary>
 
-<img src="images/passwordset.png" alt="Password creation commands" width="900">
-Setting User Password:
+<h3>Setting Passwords</h3>
 
-- line console 0
-- password x4fr7
-- login
+<span class="normal">
+  <ul>
+    <li>console password
+      <ul>
+        <li>line console 0</li>
+        <li>password xT6yR</li>
+        <li>login</li>
+        <li>end (exit can be used to exit line mode)</li>
+      </ul>
+    </li>
+<br>
+    <li>enable password
+      <ul>
+        <li>config t - (enter configuration mode)</li>
+        <li>enable password R7gS0e</li>
+        <li>exit - (when ready to exit config mode)</li>
+      </ul>
+    </li>
+<br>
+    <li>enable secret
+      <ul>
+        <li>config t - (enter configuration mode)</li>
+        <li>enable secret sEd9o7</li>
+        <li>exit - (when ready to exit config mode)</li>
+      </ul>
+    </li>
+<br>
+    <li>vty password (Virtual Teletype)
 
-Setting Enable Password
+  <span class="footnote">Virtual terminal that provides remote access for Telnet and SSH sessions</span>
+      <ul>
+        <li>line vty 0 15</li>
+        <li>password x8Hc5ja</li>
+        <li>login</li>
+        <li>end (to return to enable mode); exit (to return to config mode)</li>
+      </ul>
+  <span class="footnote">To configure different security options for different virtual lines
+      <ul>
+        <li>line vty 0 4</li>
+        <li>password MyPass</li>
+        <li>login local</li>
+        <li>transport input ssh</li>
+        <li>access-class 101 in</li>
+      </ul>
+<br>
+      <ul>
+        <li>line vty 5 15</li>
+        <li>password MyPass</li>
+        <li>login local</li>
+        <li>transport input ssh telnet</li>
+        <li>access-class 102 in</li>
+      </ul>
+    </li>
+</span>
+    <li>username/password authentication
+      <ul>
+        <li>Router(config)# username admin secret MyStrongPassword</li>
+        <li>Router(config)# line console 0</li>
+        <li>Router(config-line)# login local</li>
+      </ul>
+    </li>
+  </ul>
 
-- enable password Ft6dR
-- enable secret 7Fre4M
+  <span class="HOT">To clear a password, simply type "NO" before any command</span>
+</span>
 
-Setting VTY Password
-
-- line vty
-
-To clear a password, simply type "NO" before any command
 </details>
 
 <details>
-<summary><strong>Encryption Commands</strong></summary>
+  <summary><strong>Encryption Commands</strong></summary>
+  <h3>Encryption</h3>
 
-<img src="images/encryptpass.png" alt="Password encryption commands" width="900">
+  <ul class="normal">
+    <li>service password-encryption
+  </ul>
+
 </details>
 
 <details>
