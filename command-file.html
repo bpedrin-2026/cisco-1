@@ -28,16 +28,15 @@
         <details>
             <summary>Commands</summary><br>
 
-            <h3>Command to create a new SSH key</h3>
             <ul class="normal">
-                <li>ssh-keygen -t ed25519 -C "pedrinb@students.westerntc.edu"</li>
+                <li><h3>Creating a new SSH key</h3></li>
+                    <ul>
+                        <li>ssh-keygen -t ed25519 -C "pedrinb@students.westerntc.edu"</li>
                     </ul>
                 </li>
-            </ul>
-            <ol class="normal">
                 <li><h3>Start the agent and add the key</h3>
+                    <span class="footnote">Holds key in memory while computer is on</span>
                     <ul>
-                        <li>(Holds key in memory while computer is on)</li>
                         <li>eval "$(ssh-agent -s)"</li>
                         <li>ssh-add ~/.ssh/id_ed25519</li>
                     </ul>
@@ -52,110 +51,211 @@
                         <li>ssh -T git@github.com</li>
                     </ul>
                 </li>
-            </ol>
+            </ul>
         </details>
 
         <hr><hr>
 
-        <h1>Basic Switch and End Device Configuration</h1>
+        <div class="section-header">Section II: Basic Switch and End Device Configuration</div>
+        <br>
+
+        <h1>Help</h1>
+        <span class="footnote">The "?" command can be used to display available commands or options for a command</span>
+        <br><br>
 
         <details>
-        <summary>Access Methods</summary>
-        <h3>Access Methods</h3>
+            <summary>Syntax Help</summary>
+            <img src="images/syntax-cheatsheet.png" alt="syntax cheatsheet" width="750">
+        </details>
 
-        <ul class="normal">
-        <li>Console
-            <ul>
-            <li>Physical management port</li>
-            <li>Out-of-Band - refers to access via a cable or dedicated management channel used for maintenance only!</li>
-            <li>Cable required</li>
+        <h1>Command Modes</h1>
+
+        <details>
+            <summary>Access Methods</summary>
+            <ul class="normal">
+                <li><span class="underline-points">Console</span>
+                    <ul>
+                    <li>Physical management port</li>
+                    <li>Out-of-Band - refers to access via a cable or dedicated management channel used for maintenance only!</li>
+                    <li>Cable required</li>
+                    </ul>
+                </li>
+                <br>
+                <li><span class="underline-points">Telnet</span>
+                    <ul>
+                    <li>In-Band - <span class="hot">Insecure</span></li>
+                    <li>Over Network - used once the IP has been configured</li>
+                    <li>Requires active networking services on the device</li>
+                    <li class="hot">NOT ENCRYPTED</li>
+                    </ul>
+                </li>
+                <br>
+                <li><span class="underline-points">Secure Shell (SSH)</span>
+                    <ul>
+                    <li>In-Band</li>
+                    <li class="hot">SECURE</li>
+                    </ul>
+                </li>
             </ul>
-        </li>
-        <li>Telnet
-            <ul>
-            <li>In-Band - <span class="hot">Insecure</span></li>
-            <li>Over Network - used once the IP has been configured</li>
-            <li>Requires active networking services on the device</li>
-            <li class="hot">NOT ENCRYPTED</li>
+        </details>
+
+        <br>
+
+        <details>
+            <summary>Mode Changes</summary>
+            <ul class="normal">
+                <li><span class="underline-points">Privileged EXEC</span>
+                    <ul>
+                        <li>enable</li>
+                    </ul>
+                </li>
+                <br>
+                <li><span class="underline-points">Configuration Mode</span>
+                    <ul>
+                        <li>configure terminal (config t)</li>
+                    </ul>
+                </li>
+                <br>
+                <li><span class="underline-points">Line Configuration Mode</span>
+                    <ul>
+                        <li>line console 0</li>
+                    </ul>
+                </li>
+                <br>
+                <li><span class="underline-points">Virtual Terminal Configuration Mode</span>
+                    <ul>
+                        <li>line vty &lt;range&gt;</li>
+                    </ul>
+                </li>
+                <br>
+                <li><span class="underline-points">Interface Configuration Mode</span>
+                    <ul>
+                        <li>interface &lt;type/number&gt;</li>
+                    </ul>
+                </li>
             </ul>
-        </li>
-        <li>Secure Shell (SSH)
-            <ul>
-            <li>In-Band</li>
-            <li class="hot">SECURE</li>
-            </ul>
-        </li>
-        </ul>
-
-        <h2>1. User EXEC Mode Commands(View-Only)</h2>
-
-        <h2>2. Privileged EXEC Mode Commands</h2>
-
-        <h2>3. Global Config Mode</h2>
-
-        - Identified with prompt that ends with  "(config)#"
-        - a. **<u>Line Configuration Mode</u>** - used to config console, SSH, Telnet or AUX access
-        - b. **<u>Interface Configuration Mode</u>** - used to config a switch, port or router network interface
-
+            <span class="footnote">(ex. (config)#interface vlan 1, (config)#interface FastEthernet 0/1)</span>
         </details>
         <br>
 
         <details>
-        <summary><strong>Mode Changes</strong></summary>
-
-        <h3>Modes</h3>
-
-        <ul class="normal">
-            <li>Priveliged EXEC
-            <ul>
-                <li>enable</li>
+            <summary>Command Modes</summary>
+            
+            <ul class="normal">
+                <li><span class="underline-points">User EXEC Mode</span>
+                    <ul>
+                        <li>View-Only</li>
+                        <li>Prompt ends with "&gt;"</li>
+                    </ul>
+                </li>
+                <br>
+                <li><span class="underline-points">Privileged EXEC Mode</span>
+                    <ul>
+                        <li>Prompt ends with "#"</li>
+                    </ul>
+                </li>
+                <br>
+                <li><span class="underline-points">Global Configuration Mode</span>
+                    <ul>
+                        <li>Prompt ends with "(config)#"</li>
+                    </ul>
+                </li>
+                <br>
+                <li><span class="underline-points">Line Configuration Mode</span>
+                    <ul>
+                        <li>Prompt ends with "(config-line)#"</li>
+                        <li>Used to configure console, SSH, Telnet or AUX access</li>
+                    </ul>
+                </li>
+                <br>
+                <li><span class="underline-points">Interface Configuration Mode</span>
+                    <ul>
+                        <li>Prompt ends with "(config-if)#"</li>
+                        <li>Used to configure a switch, port or router network interface</li>
+                    </ul>
+                </li>
+                
             </ul>
-            </li>
-            <li>Configuration Mode
-            <ul>
-                <li>configure terminal (config t)</li>
-            </ul>
-            </li>
-            <li>line console
-            <ul>
-                <li>line console 0</li>
-            </ul>
-            </li>
-            <li>line vty
-            <ul>
-                <li>line vty &lt;range&gt;</li>
-            </ul>
-            </li>
-            <li>interfaces
-            <ul>
-                <li>interface &lt;type/number&gt;</li>
-            </ul>
-            </li>
-        <span class="footnote">(ex. (config)#interface vlan 1, (config)#interface FastEthernet 0/1)</span>
-        </ul>
         </details>
         <br>
 
-        <h1>Additional Commands</h1>
-
-        - no ip domain-lookup
-
-        <h1>Syntax</h1>
-
         <details>
-        <summary><strong>Syntax Help</strong></summary>
-
-        <img src="images/syntax-cheatsheet.png" alt="syntax cheatsheet" width="750">
+            <summary>Mode Commands</summary>
+            <ul class="normal">
+                <li><span class="underline-points">User EXEC Mode Commands</span>
+                    <ul>
+                        <li>show
+                            <ul>
+                                <li>running-config</li>
+                                <li>startup-config</li>
+                                <li>ip interface brief</li>
+                                <li>version</li>
+                                <li>interfaces</li>                  <!-- Used to view the status of interfaces on a device -->
+                            </ul>
+                        </li>
+                        <li>ping &lt;IP address&gt;</li>
+                        <li>traceroute &lt;IP address&gt;</li>       <!-- Used to trace the path a packet takes to reach a destination -->
+                        <li>telnet &lt;IP address&gt;</li>           <!-- Used to connect to a device via Telnet -->
+                        <li>ssh &lt;IP address&gt;</li>              <!-- Used to connect to a device via SSH -->
+                        <li>terminal length &lt;lines&gt;</li>       <!-- Controls how many lines of output are displayed before pausing -->
+                        <li>terminal monitor</li>                    <!-- Used to display debug messages on the terminal -->
+                        <li>logout</li>
+                        <li>quit</li>
+                        <li>exit</li>
+                    </ul>
+                </li>
+                <br>
+                <li><span class="underline-points">Privileged EXEC Mode Commands</span>
+                    <ul>
+                        <li>configure terminal</li>
+                        <li>boot system</li>                         <!-- Used to specify the boot image for the device -->
+                        <li>reload</li>                              <!-- Used to restart the device -->
+                        <li>cd</li>
+                        <li>change-password</li>                     <!-- Used to change the password for a user -->
+                        <li>connect</li>                             <!-- Used to connect to a device -->
+                        <li>delete</li>                              <!-- Used to delete files on the device -->
+                        <li>rename</li>                              <!-- Used to rename files on the device -->
+                        <li>resume</li>                              <!-- Used to resume a suspended process -->
+                        <li>write</li>                               <!-- Used to save the running configuration to the startup configuration -->
+                        <li>dir</li>                                 <!-- Used to display files on the device -->
+                        <li>diff</li>                                <!-- Used to display differences between configurations -->
+                        <li>format</li>                              <!-- Used to format a storage device -->
+                        <li>factory-reset</li>                       <!-- Used to reset the device to its default configuration -->
+                        <li>show</li>                                <!-- Used to view information about the device -->
+                        <li>copy</li>                                <!-- Used to copy files on the device -->
+                        <li>debug</li>                               <!-- Used to enable debugging on the device -->
+                        <li>erase</li>                               <!-- Used to erase files on the device -->
+                        <li>clear</li>                               <!-- Used to clear information on the device -->
+                        <li>exit</li>
+                    </ul>
+                </li>
+                <br>
+                <li><span class="underline-points">Global Configuration Mode Commands</span>
+                    <ul>
+                        <li>username &lt;name&gt; privilege &lt;level&gt; secret &lt;password&gt;</li>         <!-- Used to create a user with a specific privilege level and password -->
+                        <li>banner motd #message#</li>
+                        <li>enable secret &lt;password&gt;</li>
+                        <li>interface</li>                            <!-- Used to enter interface configuration mode -->
+                        <li>no ip domain-lookup</li>                  <!-- Used to disable DNS lookup for IP addresses -->
+                        <li>ip domain-name &lt;domain_name&gt;</li>   <!-- Used to set the domain name for IP addresses -->
+                        <li>service password-encryption</li>
+                        <li>router</li>                               <!-- Used to enter router configuration mode -->
+                        <li>line</li>                                 <!-- Used to enter line configuration mode -->
+                        <li>hostname</li>
+                        <li>description</li>                          <!-- Used to add a description to an interface -->
+                        <li>ipv6 address &lt;ipv6_address&gt;/&lt;prefix_length&gt;</li>    <!-- Used to set the IPv6 address of an interface -->
+                        <li>ip address &lt;ip_address&gt; &lt;subnet_mask&gt;</li>                           <!-- Used to set the IP address of an interface -->
+                        <li>no shutdown</li>                          <!-- Used to enable an interface -->
+                        <li>shutdown</li>                             <!-- Used to disable an interface -->
+                        <li>end</li>
+                        <li>exit</li>
+                    </ul>
+            </ul>
         </details>
-
-        For help in the CLI, enter a question mark (<em class="shortcut"> ? </em>)prompt.
-        - this is *context sensitive* meaning that the help you get will be determined by where and when you seek the help
-
-
         <h1>Hotkeys & Shortcuts</h1>
 
         <details>
-        <summary><strong>Hotkeys Cheatsheet</strong></summary>
+        <summary>Hotkeys Cheatsheet</summary>
 
         <img src="images/hotkeys.png" alt="Hotkeys" width="750">
         </details>
@@ -171,7 +271,7 @@
         <h1>Configuring Passwords</h1>
 
         <details>
-        <summary><strong>Password Commands</strong></summary>
+        <summary>Password Commands</summary>
 
         <h3>Setting Passwords</h3>
 
@@ -246,7 +346,7 @@
         </details>
 
         <details>
-        <summary><strong>Encryption Commands</strong></summary>
+        <summary>Encryption Commands</summary>
         <h3>Encryption</h3>
 
         <ul class="normal">
@@ -257,7 +357,7 @@
         </details>
 
         <details>
-        <summary><strong>Banner Message</strong></summary>
+        <summary>Banner Message</summary>
 
         <span class="footnote">The Banner message appears at login to alert the user of restrictions or consequences of unauthorized access
         </span>
@@ -270,6 +370,9 @@
         </details>
 
         <br>
+        <h1>Additional Commands</h1>
+
+        - no ip domain-lookup
 
         Configurations commands "shortlist"
         - show running-config
@@ -280,7 +383,7 @@
 
         # Configuring A Virtual Interface
         <details>
-        <summary><strong>Vlan Config</strong></summary>
+        <summary>Vlan Config</summary>
 
         <img src="images/vlanconfig.png" alt="Vlan Configuration">
         </details>
@@ -292,21 +395,27 @@
         "All People Seem To Need Data Processing"
 
         <details>
-        <summary><strong>OSI Model</strong></summary>
+        <summary>OSI Model</summary>
 
         <img src="images/osi-model.png" alt="OSI Reference Model">
         </details>
         <details>
-        <summary><strong>TCP/IP Model</strong></summary>
+        <summary>TCP/IP Model</summary>
 
         <img src="images/tcp-ip-model.png" alt="TCP/IP Reference Model">
         </details>
         <details>
-        <summary><strong>Model Comparison</strong></summary>
+        <summary>Model Comparison</summary>
 
         <img src="images/model-compare.png" alt="Model Comparison">
         </details>
         <br>
+
+
+
+
+
+        
     </body>
 
 </html>
