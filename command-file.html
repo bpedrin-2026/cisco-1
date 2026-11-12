@@ -65,7 +65,7 @@
 
         <details>
             <summary>Syntax Help</summary>
-            <img src="images/syntax-cheatsheet.png" alt="syntax cheatsheet" width="750">
+            <img src="images/syntax-cheatsheet.png" alt="syntax cheatsheet" style="max-width: 750px;">
         </details>
 
         <h1>Command Modes</h1>
@@ -255,88 +255,83 @@
         <h1>Hotkeys & Shortcuts</h1>
 
         <details>
-        <summary>Hotkeys Cheatsheet</summary>
-
-        <img src="images/hotkeys.png" alt="Hotkeys" width="750">
+            <summary>Hotkeys Cheatsheet</summary>
+            <img src="images/hotkeys.png" alt="Hotkeys" style="max-width: 750px;">
         </details>
-
         <br>
 
         <h1>Naming Devices</h1>
 
-        - When naming a device, enter Privileged EXEC Mode on the device and use <strong><u>hostname</u></strong> or <strong><u>no hostname</u></strong> to change the name or return it to it's original prompt name
-
+        When naming a device, enter Privileged EXEC Mode on the device and use <strong><u>hostname</u></strong> or <strong><u>no hostname</u></strong> to change the name or return it to it's original prompt name
         <br>
 
         <h1>Configuring Passwords</h1>
 
         <details>
-        <summary>Password Commands</summary>
-
-        <h3>Setting Passwords</h3>
-
-        <span class="normal">
-        <ul>
-            <li>console password
+            <summary>Password Commands</summary>
+            <h3>Setting Passwords</h3>
+            <span class="normal">
             <ul>
-                <li>line console 0</li>
-                <li>password xT6yR</li>
-                <li>login</li>
-                <li>end (exit can be used to exit line mode)</li>
+                <li><span class="underline-points">console password</span>
+                    <ul>
+                        <li>line console 0</li>
+                        <li>password xT6yR</li>
+                        <li>login</li>
+                        <li>end (exit can be used to exit line mode)</li>
+                    </ul>
+                </li>
+                <br>
+                <li><span class="underline-points">enable password</span>
+                    <ul>
+                        <li>config t - (enter configuration mode)</li>
+                        <li>enable password R7gS0e</li>
+                        <li>exit - (when ready to exit config mode)</li>
+                    </ul>
+                </li>
+                <br>
+                <li><span class="underline-points">enable secret</span>
+                    <ul>
+                        <li>config t - (enter configuration mode)</li>
+                        <li>enable secret sEd9o7</li>
+                        <li>exit - (when ready to exit config mode)</li>
+                    </ul>
+                </li>
+                <br>
+                <li><span class="underline-points">vty password (Virtual Teletype)</span>
+                    <span class="footnote">Virtual terminal that provides remote access for Telnet and SSH sessions</span>
+                    <ul>
+                        <li>line vty 0 15</li>
+                        <li>password x8Hc5ja</li>
+                        <li>login</li>
+                        <li>end (to return to enable mode); exit (to return to config mode)</li>
+                    </ul>
+                    <br>
+                    <span class="underline-points">To configure different security options for different virtual lines</span>
+                    <ul>
+                        <li>line vty 0 4</li>
+                        <li>password MyPass</li>
+                        <li>login local</li>
+                        <li>transport input ssh</li>
+                        <li>access-class 101 in</li>
+                    </ul>
+                <br>
+                    <ul>
+                        <li>line vty 5 15</li>
+                        <li>password MyPass</li>
+                        <li>login local</li>
+                        <li>transport input ssh telnet</li>
+                        <li>access-class 102 in</li>
+                    </ul>
+                </li>
+                </span>
+                <li><span class="underline-points">username/password authentication</span>
+                    <ul>
+                        <li>Router(config)# username admin secret MyStrongPassword</li>
+                        <li>Router(config)# line console 0</li>
+                        <li>Router(config-line)# login local</li>
+                    </ul>
+                </li>
             </ul>
-            </li>
-        <br>
-            <li>enable password
-            <ul>
-                <li>config t - (enter configuration mode)</li>
-                <li>enable password R7gS0e</li>
-                <li>exit - (when ready to exit config mode)</li>
-            </ul>
-            </li>
-        <br>
-            <li>enable secret
-            <ul>
-                <li>config t - (enter configuration mode)</li>
-                <li>enable secret sEd9o7</li>
-                <li>exit - (when ready to exit config mode)</li>
-            </ul>
-            </li>
-        <br>
-            <li>vty password (Virtual Teletype)
-
-        <span class="footnote">Virtual terminal that provides remote access for Telnet and SSH sessions</span>
-            <ul>
-                <li>line vty 0 15</li>
-                <li>password x8Hc5ja</li>
-                <li>login</li>
-                <li>end (to return to enable mode); exit (to return to config mode)</li>
-            </ul>
-        <span class="footnote">To configure different security options for different virtual lines
-            <ul>
-                <li>line vty 0 4</li>
-                <li>password MyPass</li>
-                <li>login local</li>
-                <li>transport input ssh</li>
-                <li>access-class 101 in</li>
-            </ul>
-        <br>
-            <ul>
-                <li>line vty 5 15</li>
-                <li>password MyPass</li>
-                <li>login local</li>
-                <li>transport input ssh telnet</li>
-                <li>access-class 102 in</li>
-            </ul>
-            </li>
-        </span>
-            <li>username/password authentication
-            <ul>
-                <li>Router(config)# username admin secret MyStrongPassword</li>
-                <li>Router(config)# line console 0</li>
-                <li>Router(config-line)# login local</li>
-            </ul>
-            </li>
-        </ul>
         <span class="hot-center">Do Not Use "enable password" | Use "enable secret"</span>
         <br>
         <span class="hot-center">To clear a password, simply type "NO" before any command</span>
@@ -385,32 +380,33 @@
         <details>
         <summary>Vlan Config</summary>
 
-        <img src="images/vlanconfig.png" alt="Vlan Configuration">
+        <img src="images/vlanconfig.png" alt="Vlan Configuration" style="max-width: 750px;">
         </details>
         command: "show ip interface brief"
-        <br>
+        <br><br>
 
+        <div class="section-header">Section III: OSI Networking Model</div>
         <h1>Reference Models</h1>
 
-        "All People Seem To Need Data Processing"
+        "<strong class="footnote">P</strong>lease <strong class="footnote">D</strong>o <strong class="footnote">N</strong>ot <strong class="footnote">T</strong>hrow <strong class="footnote">S</strong>ausage <strong class="footnote">P</strong>izza <strong class="footnote">A</strong>way"
+        <br><br>
 
         <details>
-        <summary>OSI Model</summary>
-
-        <img src="images/osi-model.png" alt="OSI Reference Model">
-        </details>
-        <details>
-        <summary>TCP/IP Model</summary>
-
-        <img src="images/tcp-ip-model.png" alt="TCP/IP Reference Model">
-        </details>
-        <details>
-        <summary>Model Comparison</summary>
-
-        <img src="images/model-compare.png" alt="Model Comparison">
+            <summary>Image of OSI Reference Models</summary>
+            <img src="images/osi-model.png" alt="OSI Reference Model" style="max-width: 750px;">
+            <img src="images/osi-tcp-model.png" alt="OSI and TCP/IP Model Comparison" style="max-width: 750px;">
         </details>
         <br>
 
+        <details>
+            <summary>TCP/IP Model</summary>
+            <img src="images/tcp-ip-model.png" alt="TCP/IP Reference Model" style="max-width: 750px;">
+        </details>
+        <br>
+
+        <h1>The Physical Layer</h1>
+
+        
 
 
 
