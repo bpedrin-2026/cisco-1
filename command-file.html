@@ -183,6 +183,7 @@
             <summary>Mode Commands</summary>
             <ul class="normal">
                 <li><span class="underline-points">User EXEC Mode Commands</span>
+                <br><br>
                     <ul>
                         <li>show
                             <ul>
@@ -206,6 +207,7 @@
                 </li>
                 <br>
                 <li><span class="underline-points">Privileged EXEC Mode Commands</span>
+                <br><br>
                     <ul>
                         <li>configure terminal</li>
                         <li>boot system</li>                         <!-- Used to specify the boot image for the device -->
@@ -231,6 +233,7 @@
                 </li>
                 <br>
                 <li><span class="underline-points">Global Configuration Mode Commands</span>
+                <br><br>
                     <ul>
                         <li>username &lt;name&gt; privilege &lt;level&gt; secret &lt;password&gt;</li>         <!-- Used to create a user with a specific privilege level and password -->
                         <li>banner motd #message#</li>
@@ -363,26 +366,38 @@
         </ul>
         <span class="footnote">The " on either side of the message can be anything just as long as it is the same in the beginning and at the end, and whatever it is does NOT appear in the message!</span>
         </details>
-
         <br>
-        <h1>Additional Commands</h1>
 
-        - no ip domain-lookup
-
-        Configurations commands "shortlist"
-        - show running-config
-        - show startup-config
-        - reload
-        - erase startup-config
-        - copy running-config startup-config (copy run start)
-
-        # Configuring A Virtual Interface
+        <h1>Configuring A Virtual Interface</h1>
         <details>
         <summary>Vlan Config</summary>
-
+        <br>
         <img src="images/vlanconfig.png" alt="Vlan Configuration" style="max-width: 750px;">
+        
+        <h3>Command</h3>
+        <p class="normal">show ip interface brief</p>
         </details>
-        command: "show ip interface brief"
+        <br>
+
+        <h1>Additional Commands</h1>
+        <details>
+        <summary>Additional Commands</summary>
+        <ul class="normal">
+            <li>no ip domain-lookup</li>
+            <li>show running-config (show run)</li>
+            <li>show startup-config (show start)</li>
+            <li>reload</li>
+            <li>erase startup-config (erase start)</li>
+            <li>copy running-config startup-config (copy run start)</li>
+        </ul>
+        <br>
+        <span class="footnote">This command displays the <u>Address Resolution Protocol</u> table</span>
+        <ul class="normal">    
+            <li>show arp</li> 
+        </ul>
+        </details>
+    
+        
         <br><br>
 
         <div class="section-header">Section III: OSI Networking Model</div>
@@ -393,8 +408,8 @@
 
         <details>
             <summary>Image of OSI Reference Models</summary>
-            <img src="images/osi-model.png" alt="OSI Reference Model" style="max-width: 750px;">
-            <img src="images/osi-tcp-model.png" alt="OSI and TCP/IP Model Comparison" style="max-width: 750px;">
+            <img src="images/osi-model.png" alt="OSI Reference Model" style="max-width: 50%;">
+            <img src="images/osi-tcp-model.png" alt="OSI and TCP/IP Model Comparison" style="max-width: 50%;">
         </details>
         <br>
 
