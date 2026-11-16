@@ -10,8 +10,9 @@ body {
   }
 
 .shortcut {
-  color: violet;
-  font-size: 1.2em;
+  color: rgb(125, 224, 105);
+  font-size: 1em;
+  font-style: italic;
 }
 
 .hot {
