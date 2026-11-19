@@ -10,6 +10,7 @@
     </head>
 
     <body>
+        <hr><hr>
         <div class="section-header">Section I: Creating Secure Shell Keys</div>
         <h1>Configure Users using GitBash Commands</h1>
 
@@ -392,6 +393,7 @@
     
         
         <br><br>
+        <hr><hr>
 
         <div class="section-header">Section III: OSI Networking Model</div>
         <h1>Reference Models</h1>
@@ -413,17 +415,80 @@
 
         <h1>The Physical Layer</h1>
         <details>
-        <summary>Cable Pinning</summary>
-        <img src="images/cable-pinning.png" alt="Cable Pinning" style="max-width: 750px;">
+            <summary>Cable Pinning</summary>
+            <p class="normal">
+                The physical layer is responsible for the transmission and reception of data between devices.<br>
+                It converts the digital bits into electrical, radio, or optical signals.<br>
+                <span class="footnote">This is the standard pinning for a straight through cable (T568A), and a crossover cable (T568B).</span>
+            </p>
+            <img src="images/cable-pinning.png" alt="Cable Pinning" style="max-width: 750px;">
         </details>
 
-         <details>
-        <summary>Numbering</summary>
-        <img src="images/dec-bin-hex.png" alt="Numbering" style="max-width: 750px;">
+        <details>
+            <summary>Numbering</summary>
+            <p class="normal">
+                To understand network addressing, it is necessary to understand the numbering systems of decimal, binary, and hexadecimal.<br>
+                The decimal system is base 10, the binary system is base 2, and the hexadecimal system is base 16. 
+            </p>
+            <img src="images/dec-bin-hex.png" alt="Numbering" style="max-width: 500px;">
+            <p class="mini-foot">Figure 1: Decimal, Binary, and Hexadecimal Numbering Systems</p>
+            <br>
+
+            <p class="underline-points">Binary Positional Values</p>
+            <p class="normal">
+                This represents a full 8 bit binary number.<br>
+                Each bit has a positional value that is a power of 2.<br>
+                To convert a binary number to decimal, you add the positional values of the bits that are set to 1.<br>
+                For example, the binary number 10101000 would be converted to decimal as follows:<br>
+            </p>
+            <img src="images/binary.png" alt="Binary" style="max-width: 500px;">
+            <p class="mini-foot">Figure 2: Binary Positional Values</p>
+            <br>
+
+            <p class="underline-points">Hexadecimal</p>
+            <p class="normal">
+                The hexadecimal system is base 16 and uses 16 symbols (0-9 and A-F) to represent values.<br>
+                Each hexadecimal digit represents 4 bits.
+                <ol class="normal">
+                    <li>Convert the decimal number to binary.</li>
+                    <li>Group the binary digits into groups of 4 bits (starting from the right).</li>
+                    <li>Convert each group of 4 bits to its corresponding hexadecimal digit.</li>
+                </ol>
+                <br>
+                <p class="normal">For example, the decimal number 235 would be converted to hexadecimal as follows:<br>
+                    <ol class="normal">
+                        <li>Convert 235 to binary: 11101011</li>
+                        <li>Group into two sets of 4 bits: 1110 1011<br><br>
+                            <div><img src="images/hex.png" alt="Hexadecimal" style="max-width: 500px;"></div><br>
+                            <ul>
+                                <li>Convert each group to decimal: 8+4+2+0 = 14; 1+0+2+8 = 11</li>
+                                <li>Convert each decimal to hexadecimal: 14 = E; 11 = B</li>
+                            </ul>
+                        </li>
+                        <li>The hexidecimal pairing of the number 235 is "EB" (see Figure 1)</li>
+                    </ol>
+            </p>
+            
         </details>
         <br><br>
         
-        
+        <h1>The Data Link Layer</h1>
+        <details>
+        <summary>Data Link Layer</summary>
+            <p class="normal">
+                The data link layer is responsible for node-to-node communication and error detection. 
+                It ensures that data is transmitted reliably between devices on the same network.
+            </p>
+        </details>
+
+        <h1>The Network Layer</h1>
+        <details>
+        <summary>Network Layer</summary>
+            <p class="normal">
+                The network layer is responsible for routing data packets between different networks. 
+                It determines the best path for data to travel from the source to the destination.
+            </p>
+        </details>
 
         
         

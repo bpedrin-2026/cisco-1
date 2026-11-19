@@ -59,3 +59,8 @@ h3 {
   font-size: 2em;
   text-shadow: 0 0 10px #86b5eb, 0 0 20px #86b5eb, 0 0 30px #86b5eb, 0 0 40px #86b5eb;
 }
+
+.mini-foot {
+  font-size: 0.8em;
+  color: lightgray;
+}
