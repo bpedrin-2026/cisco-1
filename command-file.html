@@ -7,10 +7,24 @@
         <link rel="stylesheet" href="css/styles.css">
 
         <title>Command Reference</title>
+
+        
     </head>
+    
 
     <body>
-        <hr><hr>
+
+        <header class="site-header">
+            <div class="search-bar">
+                <input type="text" id="searchBox" placeholder="Search this page...">
+                <span id="matchCount"></span>
+                <button type="button" id="clearBtn">Clear</button>
+            </div>
+        </header>
+
+
+        <hr>
+        <hr>
         <div class="section-header">Section I: Creating Secure Shell Keys</div>
         <h1>Configure Users using GitBash Commands</h1>
 
@@ -30,24 +44,24 @@
             <summary>Commands</summary><br>
 
             <ul class="normal">
-                <li><h3>Creating a new SSH key</h3></li>
-                    <ul>
-                        <li>ssh-keygen -t ed25519 -C "pedrinb@students.westerntc.edu"</li>
-                    </ul>
+                <li><span class="underline-points">Creating a new SSH key</span></li>
+                <ul>
+                    <li>ssh-keygen -t ed25519 -C "pedrinb@students.westerntc.edu"</li>
+                </ul>
                 </li>
-                <li><h3>Start the agent and add the key</h3>
+                <li><span class="underline-points">Start the agent and add the key</span><br>
                     <span class="footnote">Holds key in memory while computer is on</span>
                     <ul>
                         <li>eval "$(ssh-agent -s)"</li>
                         <li>ssh-add ~/.ssh/id_ed25519</li>
                     </ul>
                 </li>
-                <li><h3>Print & Copy Public Key</h3>
+                <li><span class="underline-points">Print & Copy Public Key</span>
                     <ul>
                         <li>cat ~/.ssh/id_ed25519.pub</li>
                     </ul>
                 </li>
-                <li><h3>Testing your connection</h3>
+                <li><span class="underline-points">Testing your connection</span>
                     <ul>
                         <li>ssh -T git@github.com</li>
                     </ul>
@@ -55,7 +69,8 @@
             </ul>
         </details>
 
-        <hr><hr>
+        <hr>
+        <hr>
 
         <div class="section-header">Section II: Basic Switch and End Device Configuration</div>
         <br>
@@ -76,25 +91,26 @@
             <ul class="normal">
                 <li><span class="underline-points">Console</span>
                     <ul>
-                    <li>Physical management port</li>
-                    <li>Out-of-Band - refers to access via a cable or dedicated management channel used for maintenance only!</li>
-                    <li>Cable required</li>
+                        <li>Physical management port</li>
+                        <li>Out-of-Band - refers to access via a cable or dedicated management channel used for maintenance
+                            only!</li>
+                        <li>Cable required</li>
                     </ul>
                 </li>
                 <br>
                 <li><span class="underline-points">Telnet</span>
                     <ul>
-                    <li>In-Band - <span class="hot">Insecure</span></li>
-                    <li>Over Network - used once the IP has been configured</li>
-                    <li>Requires active networking services on the device</li>
-                    <li class="hot">NOT ENCRYPTED</li>
+                        <li>In-Band - <span class="hot">Insecure</span></li>
+                        <li>Over Network - used once the IP has been configured</li>
+                        <li>Requires active networking services on the device</li>
+                        <li class="hot">NOT ENCRYPTED</li>
                     </ul>
                 </li>
                 <br>
                 <li><span class="underline-points">Secure Shell (SSH)</span>
                     <ul>
-                    <li>In-Band</li>
-                    <li class="hot">SECURE</li>
+                        <li>In-Band</li>
+                        <li class="hot">SECURE</li>
                     </ul>
                 </li>
             </ul>
@@ -111,7 +127,7 @@
                 <br>
                 <li><span class="underline-points">Configuration Mode</span>
                     <ul>
-                        <li>configure terminal <span class="shortcut">(config t)</span></li>
+                        <li>configure terminal - shortcut (config t)</li>
                     </ul>
                 </li>
                 <br>
@@ -134,11 +150,12 @@
                 </li>
             </ul>
             <span class="footnote">(ex. (config)#interface vlan 1, (config)#interface FastEthernet 0/1)</span>
+            <br><br>
         </details>
 
         <details>
             <summary>Command Modes</summary>
-            
+
             <ul class="normal">
                 <li><span class="underline-points">User EXEC Mode</span>
                     <ul>
@@ -172,7 +189,7 @@
                         <li>Used to configure a switch, port or router network interface</li>
                     </ul>
                 </li>
-                
+
             </ul>
         </details>
 
@@ -180,23 +197,25 @@
             <summary>Mode Commands</summary>
             <ul class="normal">
                 <li><span class="underline-points">User EXEC Mode Commands</span>
-                <br><br>
+                    <br><br>
                     <ul>
                         <li>show
                             <ul>
-                                <li>running-config</li>
-                                <li>startup-config</li>
+                                <li>running-config (run)</li>
+                                <li>startup-config (start)</li>
                                 <li>ip interface brief</li>
                                 <li>version</li>
-                                <li>interfaces</li>                  <!-- Used to view the status of interfaces on a device -->
+                                <li>interfaces</li> <!-- Used to view the status of interfaces on a device -->
                             </ul>
                         </li>
                         <li>ping &lt;IP address&gt;</li>
-                        <li>traceroute &lt;IP address&gt;</li>       <!-- Used to trace the path a packet takes to reach a destination -->
-                        <li>telnet &lt;IP address&gt;</li>           <!-- Used to connect to a device via Telnet -->
-                        <li>ssh &lt;IP address&gt;</li>              <!-- Used to connect to a device via SSH -->
-                        <li>terminal length &lt;lines&gt;</li>       <!-- Controls how many lines of output are displayed before pausing -->
-                        <li>terminal monitor</li>                    <!-- Used to display debug messages on the terminal -->
+                        <li>traceroute &lt;IP address&gt;</li>
+                        <!-- Used to trace the path a packet takes to reach a destination -->
+                        <li>telnet &lt;IP address&gt;</li> <!-- Used to connect to a device via Telnet -->
+                        <li>ssh &lt;IP address&gt;</li> <!-- Used to connect to a device via SSH -->
+                        <li>terminal length &lt;lines&gt;</li>
+                        <!-- Controls how many lines of output are displayed before pausing -->
+                        <li>terminal monitor</li> <!-- Used to display debug messages on the terminal -->
                         <li>logout</li>
                         <li>quit</li>
                         <li>exit</li>
@@ -204,49 +223,52 @@
                 </li>
                 <br>
                 <li><span class="underline-points">Privileged EXEC Mode Commands</span>
-                <br><br>
+                    <br><br>
                     <ul>
                         <li>configure terminal</li>
-                        <li>boot system</li>                         <!-- Used to specify the boot image for the device -->
-                        <li>reload</li>                              <!-- Used to restart the device -->
+                        <li>boot system</li> <!-- Used to specify the boot image for the device -->
+                        <li>reload</li> <!-- Used to restart the device -->
                         <li>cd</li>
-                        <li>change-password</li>                     <!-- Used to change the password for a user -->
-                        <li>connect</li>                             <!-- Used to connect to a device -->
-                        <li>delete</li>                              <!-- Used to delete files on the device -->
-                        <li>rename</li>                              <!-- Used to rename files on the device -->
-                        <li>resume</li>                              <!-- Used to resume a suspended process -->
-                        <li>write</li>                               <!-- Used to save the running configuration to the startup configuration -->
-                        <li>dir</li>                                 <!-- Used to display files on the device -->
-                        <li>diff</li>                                <!-- Used to display differences between configurations -->
-                        <li>format</li>                              <!-- Used to format a storage device -->
-                        <li>factory-reset</li>                       <!-- Used to reset the device to its default configuration -->
-                        <li>show</li>                                <!-- Used to view information about the device -->
-                        <li>copy</li>                                <!-- Used to copy files on the device -->
-                        <li>debug</li>                               <!-- Used to enable debugging on the device -->
-                        <li>erase</li>                               <!-- Used to erase files on the device -->
-                        <li>clear</li>                               <!-- Used to clear information on the device -->
+                        <li>change-password</li> <!-- Used to change the password for a user -->
+                        <li>connect</li> <!-- Used to connect to a device -->
+                        <li>delete</li> <!-- Used to delete files on the device -->
+                        <li>rename</li> <!-- Used to rename files on the device -->
+                        <li>resume</li> <!-- Used to resume a suspended process -->
+                        <li>write</li> <!-- Used to save the running configuration to the startup configuration -->
+                        <li>dir</li> <!-- Used to display files on the device -->
+                        <li>diff</li> <!-- Used to display differences between configurations -->
+                        <li>format</li> <!-- Used to format a storage device -->
+                        <li>factory-reset</li> <!-- Used to reset the device to its default configuration -->
+                        <li>show</li> <!-- Used to view information about the device -->
+                        <li>copy</li> <!-- Used to copy files on the device -->
+                        <li>debug</li> <!-- Used to enable debugging on the device -->
+                        <li>erase</li> <!-- Used to erase files on the device -->
+                        <li>clear</li> <!-- Used to clear information on the device -->
                         <li>exit</li>
                     </ul>
                 </li>
                 <br>
                 <li><span class="underline-points">Global Configuration Mode Commands</span>
-                <br><br>
+                    <br><br>
                     <ul>
-                        <li>username &lt;name&gt; privilege &lt;level&gt; secret &lt;password&gt;</li>         <!-- Used to create a user with a specific privilege level and password -->
+                        <li>username &lt;name&gt; privilege &lt;level&gt; secret &lt;password&gt;</li>
+                        <!-- Used to create a user with a specific privilege level and password -->
                         <li>banner motd #message#</li>
                         <li>enable secret &lt;password&gt;</li>
-                        <li>interface</li>                            <!-- Used to enter interface configuration mode -->
-                        <li>no ip domain-lookup</li>                  <!-- Used to disable DNS lookup for IP addresses -->
-                        <li>ip domain-name &lt;domain_name&gt;</li>   <!-- Used to set the domain name for IP addresses -->
+                        <li>interface</li> <!-- Used to enter interface configuration mode -->
+                        <li>no ip domain-lookup</li> <!-- Used to disable DNS lookup for IP addresses -->
+                        <li>ip domain-name &lt;domain_name&gt;</li> <!-- Used to set the domain name for IP addresses -->
                         <li>service password-encryption</li>
-                        <li>router</li>                               <!-- Used to enter router configuration mode -->
-                        <li>line</li>                                 <!-- Used to enter line configuration mode -->
+                        <li>router</li> <!-- Used to enter router configuration mode -->
+                        <li>line</li> <!-- Used to enter line configuration mode -->
                         <li>hostname</li>
-                        <li>description</li>                          <!-- Used to add a description to an interface -->
-                        <li>ipv6 address &lt;ipv6_address&gt;/&lt;prefix_length&gt;</li>    <!-- Used to set the IPv6 address of an interface -->
-                        <li>ip address &lt;ip_address&gt; &lt;subnet_mask&gt;</li>                           <!-- Used to set the IP address of an interface -->
-                        <li>no shutdown</li>                          <!-- Used to enable an interface -->
-                        <li>shutdown</li>                             <!-- Used to disable an interface -->
+                        <li>description</li> <!-- Used to add a description to an interface -->
+                        <li>ipv6 address &lt;ipv6_address&gt;/&lt;prefix_length&gt;</li>
+                        <!-- Used to set the IPv6 address of an interface -->
+                        <li>ip address &lt;ip_address&gt; &lt;subnet_mask&gt;</li>
+                        <!-- Used to set the IP address of an interface -->
+                        <li>no shutdown</li> <!-- Used to enable an interface -->
+                        <li>shutdown</li> <!-- Used to disable an interface -->
                         <li>end</li>
                         <li>exit</li>
                     </ul>
@@ -266,139 +288,150 @@
             <summary>Password Commands</summary>
             <h3>Setting Passwords</h3>
             <span class="normal">
-            <ul>
-                <li><span class="underline-points">console password</span>
-                    <ul>
-                        <li>line console 0</li>
-                        <li>password xT6yR</li>
-                        <li>login</li>
-                        <li>end (exit can be used to exit line mode)</li>
-                    </ul>
-                </li>
-                <br>
-                <li><span class="underline-points">enable password</span>
-                    <ul>
-                        <li>config t - (enter configuration mode)</li>
-                        <li>enable password R7gS0e</li>
-                        <li>exit - (when ready to exit config mode)</li>
-                    </ul>
-                </li>
-                <br>
-                <li><span class="underline-points">enable secret</span>
-                    <ul>
-                        <li>config t - (enter configuration mode)</li>
-                        <li>enable secret sEd9o7</li>
-                        <li>exit - (when ready to exit config mode)</li>
-                    </ul>
-                </li>
-                <br>
-                <li><span class="underline-points">vty password (Virtual Teletype)</span>
-                    <span class="footnote">Virtual terminal that provides remote access for Telnet and SSH sessions</span>
-                    <ul>
-                        <li>line vty 0 15</li>
-                        <li>password x8Hc5ja</li>
-                        <li>login</li>
-                        <li>end (to return to enable mode); exit (to return to config mode)</li>
-                    </ul>
+                <ul>
+                    <li><span class="underline-points">console password</span>
+                        <ul>
+                            <li>line console 0</li>
+                            <li>password xT6yR</li>
+                            <li>login</li>
+                            <li>end (exit can be used to exit line mode)</li>
+                        </ul>
+                    </li>
                     <br>
-                    <span class="underline-points">To configure different security options for different virtual lines</span>
-                    <ul>
-                        <li>line vty 0 4</li>
-                        <li>password MyPass</li>
-                        <li>login local</li>
-                        <li>transport input ssh</li>
-                        <li>access-class 101 in</li>
-                    </ul>
-                <br>
-                    <ul>
-                        <li>line vty 5 15</li>
-                        <li>password MyPass</li>
-                        <li>login local</li>
-                        <li>transport input ssh telnet</li>
-                        <li>access-class 102 in</li>
-                    </ul>
-                </li>
-                </span>
-                <li><span class="underline-points">username/password authentication</span>
-                    <ul>
-                        <li>Router(config)# username admin secret MyStrongPassword</li>
-                        <li>Router(config)# line console 0</li>
-                        <li>Router(config-line)# login local</li>
-                    </ul>
-                </li>
+                    <li><span class="underline-points">enable password</span>
+                        <ul>
+                            <li>config t - (enter configuration mode)</li>
+                            <li>enable password R7gS0e</li>
+                            <li>exit - (when ready to exit config mode)</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li><span class="underline-points">enable secret</span>
+                        <ul>
+                            <li>config t - (enter configuration mode)</li>
+                            <li>enable secret sEd9o7</li>
+                            <li>exit - (when ready to exit config mode)</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li><span class="underline-points">vty password (Virtual Teletype)</span><br>
+                        <span class="footnote">Virtual terminal that provides remote access for Telnet and SSH
+                            sessions</span>
+                        <ul>
+                            <li>line vty 0 15</li>
+                            <li>password x8Hc5ja</li>
+                            <li>login</li>
+                            <li>end (to return to enable mode); exit (to return to config mode)</li>
+                        </ul>
+                        <br>
+                        <span class="underline-points">To configure different security options for different virtual
+                            lines</span>
+                        <ul>
+                            <li>line vty 0 4</li>
+                            <li>password MyPass</li>
+                            <li>login local</li>
+                            <li>transport input ssh</li>
+                            <li>access-class 101 in</li>
+                        </ul>
+                        <br>
+                        <ul>
+                            <li>line vty 5 15</li>
+                            <li>password MyPass</li>
+                            <li>login local</li>
+                            <li>transport input ssh telnet</li>
+                            <li>access-class 102 in</li>
+                        </ul>
+                    </li>
+            </span>
+            <li><span class="underline-points">username/password authentication</span>
+                <ul>
+                    <li>Router(config)# username admin secret MyStrongPassword</li>
+                    <li>Router(config)# line console 0</li>
+                    <li>Router(config-line)# login local</li>
+                </ul>
+            </li>
             </ul>
-        <span class="hot-center">Do Not Use "enable password" | Use "enable secret"</span>
-        <br>
-        <span class="hot-center">To clear a password, simply type "NO" before any command</span>
+            <span class="hot-center">Do Not Use "enable password" | Use "enable secret"</span>
+            <br>
+            <span class="hot-center">To clear a password, simply type "NO" before any command</span>
 
-        </span>
-
-        </details>
-
-        <details>
-        <summary>Encryption Commands</summary>
-        <h3>Encryption</h3>
-
-        <ul class="normal">
-            <li>service password-encryption
-        </ul>
-
+            </span><br><br>
 
         </details>
 
         <details>
-        <summary>Banner Message</summary>
+            <summary>Encryption Commands</summary>
+            <h3 class="underline-points">Encryption</h3>
 
-        <span class="footnote">The Banner message appears at login to alert the user of restrictions or consequences of unauthorized access
-        </span>
-        <h3>Command</h3>
+            <ul class="normal">
+                <li>service password-encryption
+            </ul>
 
-        <ul class="normal">
-            <li>banner motd <span class="footnote">(message of the day)</span> "<em>message</em>"</li>
-        </ul>
-        <span class="footnote">The " on either side of the message can be anything just as long as it is the same in the beginning and at the end, and whatever it is does NOT appear in the message!</span>
+
+        </details>
+
+        <details>
+            <summary>Banner Message</summary>
+
+            <span class="footnote">The Banner message appears at login to alert the user of restrictions or consequences of
+                unauthorized access
+            </span>
+            <h3 class="underline-points">Command</h3>
+
+            <ul class="normal">
+                <li>banner motd "<em>message</em>"</li>
+            </ul>
+            <span class="footnote">The symbol used to bracket the message does not matter as long as that symbol does not
+                appear in the message</span>
         </details>
         <br>
 
         <h1>Configuring A Virtual Interface</h1>
         <details>
-        <summary>Vlan Config</summary>
-        <br>
-        <img src="images/vlanconfig.png" alt="Vlan Configuration" style="max-width: 750px;">
-        
-        <h3>Command</h3>
-        <p class="normal">show ip interface brief</p>
+            <summary>Vlan Config</summary>
+            <br>
+            <img src="images/vlanconfig.png" alt="Vlan Configuration" style="max-width: 750px;">
+
+            <h3 class="underline-points">Command</h3>
+            <p class="normal">show ip interface brief</p>
         </details>
         <br>
 
         <h1>Additional Commands</h1>
         <details>
-        <summary>Additional Commands</summary>
-        <ul class="normal">
-            <li>no ip domain-lookup</li>
-            <li>hostname <span class="footnote">new_name</span></li>
-            <li>no hostname</li>
-            <li>show running-config <span class="shortcut">(show run)</span></li>
-            <li>show startup-config <span class="shortcut">(show start)</span></li>
-            <li>reload</li>
-            <li>erase startup-config <span class="shortcut">(erase start)</span></li>
-            <li>copy running-config startup-config <span class="shortcut">(copy run start)</span></li>
-        </ul>
-        <br>
-        <span class="footnote">This command displays the <u>Address Resolution Protocol</u> table</span>
-        <ul class="normal">    
-            <li>show arp</li> 
-        </ul>
+            <summary>Additional Commands</summary>
+            <ul class="normal">
+                <li>no ip domain-lookup</li>
+                <li>hostname <span class="footnote">new_name</span></li>
+                <li>no hostname
+                    <ul>
+                        <li>using "no" followed by a command clears that setting</li>
+                    </ul>
+                </li>
+                <li>show running-config - shortcut (show run)</li>
+                <li>show startup-config - shortcut (show start)</li>
+                <li>reload</li>
+                <li>erase startup-config - shortcut (erase start)</li>
+                <li>copy running-config startup-config - shortcut (copy run start)</li>
+            </ul>
+            <br>
+            <span class="footnote">This command displays the <u>Address Resolution Protocol</u> table</span>
+            <ul class="normal">
+                <li>show arp</li>
+            </ul>
         </details>
-    
-        
+
+
         <br><br>
-        <hr><hr>
+        <hr>
+        <hr>
 
         <div class="section-header">Section III: OSI Networking Model</div>
         <h1>Reference Models</h1>
 
-        "<strong class="footnote">P</strong>lease <strong class="footnote">D</strong>o <strong class="footnote">N</strong>ot <strong class="footnote">T</strong>hrow <strong class="footnote">S</strong>ausage <strong class="footnote">P</strong>izza <strong class="footnote">A</strong>way"
+        "<strong class="footnote">P</strong>lease <strong class="footnote">D</strong>o <strong class="footnote">N</strong>ot
+        <strong class="footnote">T</strong>hrow <strong class="footnote">S</strong>ausage <strong
+            class="footnote">P</strong>izza <strong class="footnote">A</strong>way"
         <br><br>
 
         <details>
@@ -419,7 +452,8 @@
             <p class="normal">
                 The physical layer is responsible for the transmission and reception of data between devices.<br>
                 It converts the digital bits into electrical, radio, or optical signals.<br>
-                <span class="footnote">This is the standard pinning for a straight through cable (T568A), and a crossover cable (T568B).</span>
+                <span class="footnote">This is the standard pinning for a straight through cable (T568A), and a crossover
+                    cable (T568B).</span>
             </p>
             <img src="images/cable-pinning.png" alt="Cable Pinning" style="max-width: 750px;">
         </details>
@@ -427,8 +461,9 @@
         <details>
             <summary>Numbering</summary>
             <p class="normal">
-                To understand network addressing, it is necessary to understand the numbering systems of decimal, binary, and hexadecimal.<br>
-                The decimal system is base 10, the binary system is base 2, and the hexadecimal system is base 16. 
+                To understand network addressing, it is necessary to understand the numbering systems of decimal, binary,
+                and hexadecimal.<br>
+                The decimal system is base 10, the binary system is base 2, and the hexadecimal system is base 16.
             </p>
             <img src="images/dec-bin-hex.png" alt="Numbering" style="max-width: 500px;">
             <p class="mini-foot">Figure 1: Decimal, Binary, and Hexadecimal Numbering Systems</p>
@@ -449,49 +484,214 @@
             <p class="normal">
                 The hexadecimal system is base 16 and uses 16 symbols (0-9 and A-F) to represent values.<br>
                 Each hexadecimal digit represents 4 bits.
-                <ol class="normal">
-                    <li>Convert the decimal number to binary.</li>
-                    <li>Group the binary digits into groups of 4 bits (starting from the right).</li>
-                    <li>Convert each group of 4 bits to its corresponding hexadecimal digit.</li>
-                </ol>
-                <br>
-                <p class="normal">For example, the decimal number 235 would be converted to hexadecimal as follows:<br>
-                    <ol class="normal">
-                        <li>Convert 235 to binary: 11101011</li>
-                        <li>Group into two sets of 4 bits: 1110 1011<br><br>
-                            <div><img src="images/hex.png" alt="Hexadecimal" style="max-width: 500px;"></div><br>
-                            <ul>
-                                <li>Convert each group to decimal: 8+4+2+0 = 14; 1+0+2+8 = 11</li>
-                                <li>Convert each decimal to hexadecimal: 14 = E; 11 = B</li>
-                            </ul>
-                        </li>
-                        <li>The hexidecimal pairing of the number 235 is "EB" (see Figure 1)</li>
-                    </ol>
+            <ol class="normal">
+                <li>Convert the decimal number to binary.</li>
+                <li>Group the binary digits into groups of 4 bits (starting from the right).</li>
+                <li>Convert each group of 4 bits to its corresponding hexadecimal digit.</li>
+            </ol>
+            <br>
+            <p class="normal">For example, the decimal number 235 would be converted to hexadecimal as follows:<br>
+            <ol class="normal">
+                <li>Convert 235 to binary: 11101011</li>
+                <li>Group into two sets of 4 bits: 1110 1011<br><br>
+                    <div><img src="images/hex.png" alt="Hexadecimal" style="max-width: 500px;"></div><br>
+                    <ul>
+                        <li>Convert each group to decimal: 8+4+2+0 = 14; 1+0+2+8 = 11</li>
+                        <li>Convert each decimal to hexadecimal: 14 = E; 11 = B</li>
+                    </ul>
+                </li>
+                <li>The hexidecimal pairing of the number 235 is "EB" (see Figure 1)</li>
+            </ol>
             </p>
-            
+
         </details>
         <br><br>
-        
+
         <h1>The Data Link Layer</h1>
         <details>
-        <summary>Data Link Layer</summary>
+            <summary>Data Link Layer</summary>
             <p class="normal">
-                The data link layer is responsible for node-to-node communication and error detection. 
+                The data link layer is responsible for node-to-node communication and error detection.
                 It ensures that data is transmitted reliably between devices on the same network.
             </p>
         </details>
 
         <h1>The Network Layer</h1>
         <details>
-        <summary>Network Layer</summary>
+            <summary>Network Layer</summary>
             <p class="normal">
-                The network layer is responsible for routing data packets between different networks. 
+                The network layer is responsible for routing data packets between different networks.<br>
                 It determines the best path for data to travel from the source to the destination.
+            </p>
+            <p>
+            <ul class="normal">
+                <li>IP Protocol
+                    <ul>
+                        <li>Best Effort Delivery</li>
+                        <li>Media Independent</li>
+                        <li>Connectionless</li>
+                    </ul>
+                </li>
+                <li>IP Settings
+                    <ul>
+                        <li>IP Address</li>
+                        <li>Subnet Mask</li>
+                        <li>Default Gateway</li>
+                    </ul>
+                </li>
+                <li>Loopback Address
+                    <ul>
+                        <li>IPv4: 127.0.0.1</li>
+                        <li>IPv6: ::1</li>
+                    </ul>
+                </li>
+            </ul>
             </p>
         </details>
 
-        
-        
+        <h1>Basic Router Configuration</h1>
+        <details>
+            <summary>Router Configuration</summary>
+            <p class="normal">
+                The router configuration process involves setting up the router's interfaces, routing protocols, and
+                security settings.<br>
+                It is important to configure the router correctly to ensure proper network communication.
+            </p>
+
+
+            <ul class="normal">
+                <li><span class="underline-points">Configure Device Name and Passwords</span>
+                    <ul>
+                        <li>hostname &lt;name&gt;</li>
+                        <li>enable secret &lt;password&gt;</li>
+                        <li>line console 0
+                            <ul>
+                                <li>password &lt;password&gt;</li>
+                                <li>login</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><span class="underline-points">Securing Remote Telnet and SSH Access</span>
+                    <ul>
+                        <li>line vty 0 4
+                            <ul>
+                                <li>password &lt;password&gt;</li>
+                                <li>login</li>
+                                <li>transport input { ssh | telnet }</li>
+                            </ul>
+                        </li>   
+                    </ul>
+                </li>
+                <li><span class="underline-points">Configure Router Interfaces</span>
+                    <ul>
+                        <li>interface &lt;type/number&gt;</li>
+                        <li>description &lt;description&gt;</li>
+                        <li>ip address &lt;ip_address&gt; &lt;subnet_mask&gt;</li>
+                        <li>ipv6 address &lt;ipv6_address&gt;/&lt;prefix_length&gt;</li>
+                        <li>ip default-gateway &lt;gateway_ip&gt;</li>
+                        <li>no shutdown</li>
+                    </ul>
+
+                </li>
+            </ul>
+        </details>
+
+
+        <script>
+            const searchBox = document.querySelector("#searchBox");
+            const matchCount = document.querySelector("#matchCount");
+            const clearBtn = document.querySelector("#clearBtn");
+
+            function clearHighlights() {
+                document.querySelectorAll("mark.search-hit").forEach(function (mark) {
+                    const parent = mark.parentNode;
+                    parent.replaceChild(document.createTextNode(mark.textContent), mark);
+                    parent.normalize(); // merges the split text pieces back together
+                });
+            }
+
+            function highlightMatches(term) {
+                clearHighlights();
+                matchCount.textContent = "";
+                if (term.trim() === "") return;
+
+                // Escape special regex characters so typing "." or "(" doesn't break things
+                const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+                const regex = new RegExp(escaped, "gi"); // g = all matches, i = ignore case
+
+                // Collect every text node on the page, skipping scripts, styles, and the search bar
+                const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+                    acceptNode: function (node) {
+                        const parent = node.parentElement;
+                        if (parent.closest(".search-bar")) return NodeFilter.FILTER_REJECT;
+                        if (["SCRIPT", "STYLE", "NOSCRIPT"].includes(parent.nodeName)) {
+                            return NodeFilter.FILTER_REJECT;
+                        }
+                        return NodeFilter.FILTER_ACCEPT;
+                    }
+                });
+
+                const textNodes = [];
+                while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+                let count = 0;
+
+                textNodes.forEach(function (node) {
+                    const text = node.textContent;
+                    const matches = [...text.matchAll(regex)];
+                    if (matches.length === 0) return;
+
+                    // Open any <details> sections that contain a match
+                    let section = node.parentElement.closest("details");
+                    while (section) {
+                        section.open = true;
+                        section = section.parentElement.closest("details");
+                    }
+
+                    // Rebuild this text node as: text, <mark>, text, <mark>, text...
+                    const fragment = document.createDocumentFragment();
+                    let lastIndex = 0;
+
+                    matches.forEach(function (match) {
+                        fragment.append(text.slice(lastIndex, match.index));
+
+                        const mark = document.createElement("mark");
+                        mark.className = "search-hit";
+                        mark.textContent = match[0];
+                        fragment.append(mark);
+
+                        lastIndex = match.index + match[0].length;
+                        count++;
+                    });
+
+                    fragment.append(text.slice(lastIndex));
+                    node.parentNode.replaceChild(fragment, node);
+                });
+
+                matchCount.textContent = count + (count === 1 ? " match" : " matches");
+            }
+
+            if (searchBox) {
+                searchBox.addEventListener("input", function () {
+                    highlightMatches(searchBox.value);
+                });
+            }
+
+            if (clearBtn) {
+                clearBtn.addEventListener("click", function () {
+                    searchBox.value = "";             // empty the search box
+                    clearHighlights();                // remove the yellow <mark> tags
+                    matchCount.textContent = "";      // clear the "3 matches" text
+
+                    document.querySelectorAll("details").forEach(function (section) {
+                        section.open = false;         // close every section
+                    });
+
+                    searchBox.focus();                // put the cursor back in the box
+                });
+            }
+        </script>
     </body>
 
 </html>

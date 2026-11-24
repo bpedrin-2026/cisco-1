@@ -1,16 +1,27 @@
-
 body {
-    background-color: rgb(20, 20, 20);
-    color: white;
-    font-family: Arial, sans-serif;
+  background-color: rgb(20, 20, 20);
+  color: rgb(181, 191, 245);
+  font-family: Arial, sans-serif;
 }
 
-  details {
-    color: yellow;
-  }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+
+details {
+  color: rgb(29, 148, 132);
+}
 
 .shortcut {
-  color: rgb(125, 224, 105);
+  color: rgb(215, 228, 30);
   font-size: 1em;
   font-style: italic;
 }
@@ -27,7 +38,7 @@ body {
 }
 
 h1 {
-  color: rgb(88, 137, 201);
+  color: rgb(18, 99, 206);
 }
 
 h2 {
@@ -40,7 +51,7 @@ h3 {
 }
 
 .underline-points {
-  color: rgb(228, 166, 50);
+  color: rgb(50, 228, 169);
   text-decoration: underline;
   font-size: 1.2em;
 }
@@ -51,7 +62,7 @@ h3 {
 
 .footnote {
   font-style: italic;
-  color: violet;
+  color: rgb(90, 226, 49);
   font-size: 1.2em;
 }
 
@@ -63,4 +74,27 @@ h3 {
 .mini-foot {
   font-size: 0.8em;
   color: lightgray;
+}
+
+mark.search-hit {
+  background-color: yellow;
+  color: black;
+}
+
+#searchBox {
+  font-size: 1.3rem;
+  padding: 10px 14px;
+  width: 300px;
+}
+
+#matchCount {
+  font-size: 1.1rem;
+  margin-left: 10px;
+}
+
+#clearBtn {
+    font-size: 1.1rem;
+    padding: 10px 14px;
+    margin-left: 10px;
+    cursor: pointer;
 }
