@@ -592,10 +592,69 @@
                         <li>ip default-gateway &lt;gateway_ip&gt;</li>
                         <li>no shutdown</li>
                     </ul>
-
                 </li>
             </ul>
         </details>
+
+        <h1>ARP vs. ICMPv6</h1>
+        <details>
+            <summary>MAC Address Resolution Protocols</summary>
+                <li><span class="underline-points">ARP - Address Resolution Protocol</span>
+                    <ul class="normal">
+                        <li>Used by IPv4
+                            <ul>
+                                <li>For resolving IPv4 addresses to MAC addresses</li>
+                                <li>Maintaining a table of IPv4 to MAC address mappings</li>
+                            </ul>
+                        </li>
+                        <li>BroadcastS signal to all active ports
+                            <ul>
+                                <li>broadcast address: FF-FF-FF-FF-FF-FF</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li><span class="underline-points">ND - Neighbor Discovery Protocol</span>
+                    <ul class="normal">
+                        <li>Used by IPv6
+                            <ul>
+                                <li>Neighbor Solicitation messages</li>
+                                <li>Neighbor Advertisement messages</li>
+                                <li>Router Solicitation messages</li>
+                                <li>Router Advertisement messages</li>
+                                <li>Redirect message</li>
+                            </ul>
+                        </li>
+                        <li>Multicast to a smaller, localized, group</li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="normal">
+                Every IPv6 device automatically joins a small "group" based on the last 6 hex digits of its own address.<br>
+                That group has its own multicast address, called the solicited-node multicast address.<br>
+                It always starts with <span class="footnote">FF02::1:FF</span>, and the last 6 digits of the device's address go on the end.<br><br>
+
+                Here's an example. Say your computer wants to reach 2001:db8::12:3456.
+                <ul class="normal">
+                    <li>It takes the last 6 digits, 12:3456.</li>
+                    <li>It sticks them on the end of FF02::1:FF, which gives FF02::1:FF12:3456.</li>
+                    <li> It sends the Neighbor Solicitation to that address.</li>
+                </ul>
+            </p>
+            <p class="normal">
+                The target device is already listening on FF02::1:FF12:3456, because it joined that group when it got its address.<br>
+                So it hears the question and answers. Nearly every other device has a different ending, so they're in different groups and ignore it.
+            </p>
+
+        </details>
+
+
+
+
+
+
+
 
 
         <script>
